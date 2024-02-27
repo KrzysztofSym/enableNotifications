@@ -1,0 +1,281 @@
+/* Add CSS here */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
+/*===== VARIABLES CSS =====*/
+
+:root {
+    --h1-fs: 2rem;    --h1-fs-media: 3rem; 
+    --h2-fs: 1.5rem;  --h2-fs-media: 2rem;
+    --h3-fs: 1.3rem;  --h3-fs-media: 1.8rem;
+    --h4-fs: 1.1rem;  --h4-fs-media: 1.5rem;
+    --p-fs: .8rem;    --p-fs-media: 1.1rem;
+    --a-fs: .7rem;    --a-fs-media: 1.1rem;
+    --li-fs: .7rem;   --li-fs-media: 1.1rem;    
+
+    --clr-bg-main: #a0c9f8;
+    --clr-bg-pri: #121637;
+    --clr-bg-sec: #b4d4fb;
+    --clr-acc-main: #00bea6;
+    --clr-acc-pri: #4393f5;
+    --clr-acc-sec:  #3676c4;
+    --clr-acc-thi: #2e67a9;
+    --clr-acc-four: #ad0000;
+    --clr-acc-fif: #e03333;
+    --clr-text-main: #67696a;
+    --clr-text-pri: #36454F;  
+    
+    --shadow-color: #33cbb8;    
+    --main-ff: 'Poppins', sans-serif;
+  }
+
+/*===== BASE =====*/
+
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--main-ff);
+    font-size: var(--p-fs);
+    background: var(--clr-bg-main);
+    color: var(--clr-text-main);
+    width: 100%;
+    min-height: 100vh;
+}   
+
+h1, h2, h3, h4,
+p, a, li {
+    margin: 0;
+}
+
+h1 {font-size: var(--h1-fs);}
+h2 {font-size: var(--h2-fs);}
+h3 {font-size: var(--h3-fs);}
+h4 {
+    font-size: var(--h4-fs);
+    line-height: calc(var(--h4-fs) + .6rem);
+    margin-top: -0.3rem;
+}
+
+p, a, li {font-size: var(--p-fs);}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--clr-text-main);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+@keyframes scaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+
+    }
+}
+    /* animation: scaleUp 1s ease-in-out;
+    transform-origin: center center; */
+
+/*===== BUTTONS =====*/
+
+.btn {
+    display: inline-block;
+    background-color:  var(--clr-acc-pri);
+    color: #fff;
+    padding: .5rem 1.5rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: .2s;
+}
+
+.btn:last-of-type {
+    background-color: transparent;
+    color: var(--clr-acc-pri);
+}
+  
+.btn:first-of-type:hover {
+    background-color: var(--clr-acc-sec);
+    box-shadow: 0 10px 36px rgba(0, 0, 0, .15);
+}
+
+.btn:last-of-type:hover {
+    color: var(--clr-acc-thi);
+}
+
+.btn:active {
+    scale: .97;
+}
+
+/*===== PROJECT CSS =====*/
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    min-width: 400px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    animation: scaleUp 1s ease-in-out;
+    transform-origin: center center;
+}
+
+.card {
+    max-width: 500px;
+    padding: 2rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    position: relative;
+    background-color: var(--clr-bg-pri);
+    box-shadow: 0px 8px 30px -10px var(--clr-bg-pri);
+    border-radius: .5rem;
+    transition: 0.2s;
+    color: #fff;
+}
+
+.card h4 {
+    vertical-align: top;
+}
+
+.card:first-of-type img {
+    height: 3rem;
+    border-radius: .3rem;
+}
+
+.card:last-of-type {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 1rem;
+    background-color: var(--clr-bg-sec);
+    color: var(--clr-bg-pri);
+}
+
+.card:last-of-type img {
+    background-color: var(--clr-acc-main);
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+
+}
+
+.btns  {
+    display: flex;
+    margin-top: 1rem;
+    gap: .5rem;
+}
+
+.card > i {
+    position: absolute;
+    font-size: 1.5rem;
+    right: 1.5rem;
+    top: 1.5rem;
+    cursor: pointer;
+}
+
+.card:hover .notification-amount {
+    opacity: 1;
+    visibility: visible;
+}
+
+.card:hover .notification-amount::before {
+    animation-name: bounce;
+    animation-delay: 450ms;
+}
+
+
+.notification-amount {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 3rem;
+    left: 6rem;
+    width: 20px;
+    height: 20px;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Copse", serif;
+    font-size: 14px;
+}
+
+.card:last-child .notification-amount {
+    left: calc(50% + 2rem);
+    top:3rem;
+}
+
+.notification-amount>span {
+    position: relative;
+}
+
+.notification-amount::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #f72918;
+    border-radius: 50%;
+    z-index: 0;
+    transform: scale(0);
+    animation-duration: 800ms;
+    animation-fill-mode: both;
+}
+
+@keyframes bounce {
+    0% {
+        transform: scale(0);
+    }
+
+    14% {
+        transform: scale(1.25);
+    }
+
+    28% {
+        transform: scale(1);
+    }
+
+    42% {
+        transform: scale(1.25);
+    }
+
+    70% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
